@@ -53,34 +53,32 @@ export function FeaturedProject({
       transition={{ duration: 0.6, delay }}
       className={cn("overflow-hidden rounded-xl", className)}
     >
-      <Card className="flex flex-col md:flex-row overflow-hidden border border-border/40 rounded-lg transition-all duration-300 hover:border-border/80 bg-card/50 backdrop-blur-sm h-full">
-        <div className="md:w-[40%] relative overflow-hidden">
-          {video && (
-            <video
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="pointer-events-none h-full w-full object-cover"
-            />
-          )}
-          {image && (
-            <Image
-              src={image}
-              alt={title}
-              width={500}
-              height={300}
-              className="h-full w-full object-cover"
-            />
-          )}
-          {!image && !video && (
-            <div className="h-full w-full bg-gradient-to-br from-purple-900/20 via-violet-800/20 to-indigo-700/20" />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent md:bg-gradient-to-l" />
-        </div>
+      <Card className="flex flex-col overflow-hidden border border-border/40 rounded-lg transition-all duration-300 hover:border-border/80 bg-card/50 backdrop-blur-sm h-full">
+        {(video || image) && (
+          <div className="relative w-full h-56 overflow-hidden">
+            {video && (
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="pointer-events-none h-full w-full object-cover"
+              />
+            )}
+            {image && (
+              <Image
+                src={image}
+                alt={title}
+                width={500}
+                height={300}
+                className="h-full w-full object-cover"
+              />
+            )}
+          </div>
+        )}
         
-        <div className="md:w-[60%] p-6 flex flex-col">
+        <div className="p-6 flex flex-col h-full">
           <CardHeader className="px-0 pt-0 pb-2">
             <div className="space-y-2">
               <CardTitle className="text-2xl font-bold tracking-tight">{title}</CardTitle>
@@ -148,7 +146,7 @@ export function FeaturedProject({
           <CardFooter className="flex flex-col items-start mt-auto px-0 pt-2 pb-0">
             {tags && tags.length > 0 && (
               <div className="flex flex-wrap gap-1.5 mb-4">
-                {tags?.slice(0, 5).map((tag) => (
+                {tags?.map((tag) => (
                   <Badge
                     className="px-2 py-0.5 text-xs bg-secondary/50 hover:bg-secondary/70 transition-colors font-medium"
                     variant="secondary"
@@ -157,14 +155,6 @@ export function FeaturedProject({
                     {tag}
                   </Badge>
                 ))}
-                {tags.length > 5 && (
-                  <Badge
-                    className="px-2 py-0.5 text-xs bg-secondary/50 hover:bg-secondary/70 transition-colors font-medium"
-                    variant="secondary"
-                  >
-                    +{tags.length - 5} more
-                  </Badge>
-                )}
               </div>
             )}
             

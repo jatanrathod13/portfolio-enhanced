@@ -173,38 +173,39 @@ export default function Page() {
       
       <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
       
-      <section id="projects" className="w-full mb-16">
-        <SectionHeader
+      <section id="projects" className="w-full max-w-3xl mx-auto mb-16">
+        <SectionTitle
           title="Featured Projects"
+          badge="Projects"
           subtitle="I've developed and delivered impactful, enterprise-grade data and AI systems for diverse organizations, ranging from federal agencies to Fortune 500 companies."
-          containerClassName="mb-12"
+          delay={BLUR_FADE_DELAY * 11}
         />
         
-        <div className="w-full max-w-4xl mx-auto px-4 mb-12">
-          <FeaturedProject
-            title={featuredProject.title}
-            href={featuredProject.href || undefined}
-            description={featuredProject.description}
-            tags={featuredProject.technologies}
-            client={featuredProject.client}
-            clientLogo={(featuredProject as ProjectWithIcon).clientLogo}
-            clientLogos={(featuredProject as ProjectWithIcon).clientLogos}
-            clientIcon={(featuredProject as ProjectWithIcon).clientIcon}
-            delay={BLUR_FADE_DELAY * 11}
-          />
+        <div className="w-full mt-6 mb-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 11.5}>
+            <FeaturedProject
+              title={featuredProject.title}
+              href={featuredProject.href || undefined}
+              description={featuredProject.description}
+              tags={featuredProject.technologies}
+              client={featuredProject.client}
+              clientLogo={(featuredProject as ProjectWithIcon).clientLogo}
+              clientLogos={(featuredProject as ProjectWithIcon).clientLogos}
+              clientIcon={(featuredProject as ProjectWithIcon).clientIcon}
+              delay={0}
+            />
+          </BlurFade>
         </div>
         
-        <div className="w-full max-w-3xl mx-auto">
-          <SectionTitle 
-            title="More Projects" 
-            subtitle="Here are some other projects I've worked on."
-            delay={BLUR_FADE_DELAY * 12}
-            showBadge={false}
-          />
-        </div>
+        <SectionTitle 
+          title="More Projects" 
+          subtitle="Here are some other projects I've worked on."
+          delay={BLUR_FADE_DELAY * 12}
+          showBadge={false}
+        />
         
         <div className="w-full mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {DATA.projects.slice(1).map((project, id) => (
               <BlurFade
                 key={project.title}
