@@ -16,7 +16,7 @@ import { SectionHeader } from "@/components/section-header";
 import { SkillCategory } from "@/components/skill-category";
 import { FloatingNav } from "@/components/floating-nav";
 import { IconWrapper } from "@/components/icon-wrapper";
-import { ArrowUpCircle, Brain, Briefcase, GraduationCap, Home, Layers, Mail, User } from "lucide-react";
+import { ArrowUpCircle } from "lucide-react";
 
 // Define a more specific type that includes clientIcon and clientLogos
 type ProjectWithIcon = (typeof DATA.projects[number]) & {
@@ -29,12 +29,12 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   const navigationItems = [
-    { id: "hero", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "work", label: "Experience", icon: Briefcase },
-    { id: "skills", label: "Skills", icon: Brain },
-    { id: "projects", label: "Projects", icon: Layers },
-    { id: "contact", label: "Contact", icon: Mail },
+    { id: "hero", label: "Home", icon: "home" },
+    { id: "about", label: "About", icon: "user" },
+    { id: "work", label: "Experience", icon: "briefcase" },
+    { id: "skills", label: "Skills", icon: "brain" },
+    { id: "projects", label: "Projects", icon: "layers" },
+    { id: "contact", label: "Contact", icon: "mail" },
   ];
 
   // Get the first project for the featured section
@@ -250,7 +250,7 @@ export default function Page() {
             href={DATA.contact.social.X.url}
             className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
           >
-            <IconWrapper icon={DATA.contact.social.X.icon} className="h-4 w-4" />
+            <IconWrapper icon="twitter" className="h-4 w-4" />
             <span className="ml-2">Message on Twitter</span>
           </Link>
         </BlurFade>

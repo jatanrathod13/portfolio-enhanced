@@ -4,13 +4,21 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import * as React from 'react';
-import { IconWrapper } from "./icon-wrapper";
-import type { IconProps } from "./icon-wrapper";
+import { 
+  Home, 
+  User, 
+  Briefcase, 
+  Brain, 
+  Layers, 
+  Mail, 
+  Twitter, 
+  LucideIcon 
+} from 'lucide-react';
 
 export interface NavItem {
   id: string;
   label: string;
-  icon: React.ComponentType<IconProps> | React.ReactNode;
+  icon: string;
 }
 
 interface FloatingNavProps {
@@ -18,6 +26,17 @@ interface FloatingNavProps {
   navBg?: string; // Optional background color
   className?: string;
 }
+
+// Map string identifiers to actual icon components
+const iconMap: Record<string, LucideIcon> = {
+  home: Home,
+  user: User,
+  briefcase: Briefcase,
+  brain: Brain,
+  layers: Layers,
+  mail: Mail,
+  twitter: Twitter
+};
 
 export function FloatingNav({ items, className }: FloatingNavProps) {
   const [activeSection, setActiveSection] = useState<string>('');
@@ -90,7 +109,7 @@ export function FloatingNav({ items, className }: FloatingNavProps) {
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <IconWrapper icon={item.icon} className="h-4 w-4" />
+                {item.icon && iconMap[item.icon] && React.createElement(iconMap[item.icon], { className: 'h-4 w-4' })}
                 <span className="sr-only">{item.label}</span>
               </button>
             ))}

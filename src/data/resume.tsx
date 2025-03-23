@@ -1,17 +1,3 @@
-import { Icons } from "@/components/icons";
-import { 
-  HomeIcon, 
-  NotebookIcon, 
-  Database, 
-  Code, 
-  Laptop, 
-  Brain, 
-  LineChart, 
-  Layers, 
-  Network
-} from "lucide-react";
-import { Github, Twitter, Linkedin } from "lucide-react";
-
 export const DATA = {
   name: "Jatan Rathod",
   initials: "JR",
@@ -40,7 +26,7 @@ export const DATA = {
   skillCategories: [
     {
       title: "Data Engineering",
-      icon: Database,
+      icon: "database",
       skills: [
         "Data Pipelines",
         "ETL Processes",
@@ -51,7 +37,7 @@ export const DATA = {
     },
     {
       title: "AI & Machine Learning",
-      icon: Brain,
+      icon: "brain",
       skills: [
         "Natural Language Processing (NLP)",
         "Large Language Models (LLMs)",
@@ -62,7 +48,7 @@ export const DATA = {
     },
     {
       title: "Programming",
-      icon: Code,
+      icon: "code",
       skills: [
         "Python",
         "SQL",
@@ -73,7 +59,7 @@ export const DATA = {
     },
     {
       title: "Architecture",
-      icon: Layers,
+      icon: "layers",
       skills: [
         "Microservices",
         "Serverless",
@@ -84,7 +70,7 @@ export const DATA = {
     },
     {
       title: "Analytics",
-      icon: LineChart,
+      icon: "lineChart",
       skills: [
         "Statistical Analysis",
         "Economic Modeling",
@@ -95,8 +81,8 @@ export const DATA = {
     }
   ],
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/", icon: "home", label: "Home" },
+    { href: "/blog", icon: "notebook", label: "Blog" },
   ],
   contact: {
     email: "contact@jatanrathod.com",
@@ -106,25 +92,25 @@ export const DATA = {
       GitHub: {
         name: "GitHub",
         url: "https://github.com/jatanrathod",
-        icon: Github,
+        icon: "github",
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
         url: "https://linkedin.com/in/jatanrathod",
-        icon: Linkedin,
+        icon: "linkedin",
         navbar: true,
       },
       X: {
         name: "X",
         url: "https://twitter.com/jatanrathod",
-        icon: Twitter,
+        icon: "twitter",
         navbar: true,
       },
       email: {
         name: "Send Email",
         url: "#",
-        icon: Icons.email,
+        icon: "mail",
         navbar: false,
       },
     },
