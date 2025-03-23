@@ -1,17 +1,21 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import * as React from 'react';
+import { IconWrapper } from "./icon-wrapper";
+import type { IconProps } from "./icon-wrapper";
 
-interface NavItem {
+export interface NavItem {
   id: string;
   label: string;
-  icon?: React.ReactNode;
+  icon: React.ComponentType<IconProps> | React.ReactNode;
 }
 
 interface FloatingNavProps {
   items: NavItem[];
+  navBg?: string; // Optional background color
   className?: string;
 }
 
@@ -82,12 +86,12 @@ export function FloatingNav({ items, className }: FloatingNavProps) {
                 className={cn(
                   "flex items-center justify-center px-3 py-1.5 rounded-full text-sm transition-colors duration-200",
                   activeSection === item.id 
-                    ? "text-background bg-foreground" 
-                    : "text-foreground/70 hover:text-foreground hover:bg-accent"
+                    ? "text-foreground" 
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {item.icon && <span className="mr-1.5">{item.icon}</span>}
-                <span>{item.label}</span>
+                <IconWrapper icon={item.icon} className="h-4 w-4" />
+                <span className="sr-only">{item.label}</span>
               </button>
             ))}
           </nav>

@@ -10,6 +10,7 @@ import {
   Layers, 
   Network
 } from "lucide-react";
+import { Github, Twitter, Linkedin } from "lucide-react";
 
 export const DATA = {
   name: "Jatan Rathod",
@@ -39,7 +40,7 @@ export const DATA = {
   skillCategories: [
     {
       title: "Data Engineering",
-      icon: <Database className="h-4 w-4" />,
+      icon: Database,
       skills: [
         "Data Pipelines",
         "ETL Processes",
@@ -50,7 +51,7 @@ export const DATA = {
     },
     {
       title: "AI & Machine Learning",
-      icon: <Brain className="h-4 w-4" />,
+      icon: Brain,
       skills: [
         "Natural Language Processing (NLP)",
         "Large Language Models (LLMs)",
@@ -61,7 +62,7 @@ export const DATA = {
     },
     {
       title: "Programming",
-      icon: <Code className="h-4 w-4" />,
+      icon: Code,
       skills: [
         "Python",
         "SQL",
@@ -72,7 +73,7 @@ export const DATA = {
     },
     {
       title: "Architecture",
-      icon: <Layers className="h-4 w-4" />,
+      icon: Layers,
       skills: [
         "Microservices",
         "Serverless",
@@ -83,7 +84,7 @@ export const DATA = {
     },
     {
       title: "Analytics",
-      icon: <LineChart className="h-4 w-4" />,
+      icon: LineChart,
       skills: [
         "Statistical Analysis",
         "Economic Modeling",
@@ -100,23 +101,24 @@ export const DATA = {
   contact: {
     email: "contact@jatanrathod.com",
     tel: "",
+    location: "Toronto, Canada",
     social: {
       GitHub: {
         name: "GitHub",
         url: "https://github.com/jatanrathod",
-        icon: Icons.github,
+        icon: Github,
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
         url: "https://linkedin.com/in/jatanrathod",
-        icon: Icons.linkedin,
+        icon: Linkedin,
         navbar: true,
       },
       X: {
         name: "X",
         url: "https://twitter.com/jatanrathod",
-        icon: Icons.x,
+        icon: Twitter,
         navbar: true,
       },
       email: {
