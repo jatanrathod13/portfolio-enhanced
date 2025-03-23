@@ -5,10 +5,17 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import type { ReactNode } from "react";
+import { FeaturedProject } from "@/components/featured-project";
+import { SectionTitle } from "@/components/section-title";
+import { SectionHeader } from "@/components/section-header";
+import { SkillCategory } from "@/components/skill-category";
+import { FloatingNav } from "@/components/floating-nav";
+import { ArrowUpCircle, Brain, Briefcase, GraduationCap, Home, Layers, Mail, User } from "lucide-react";
 
 // Define a more specific type that includes clientIcon and clientLogos
 type ProjectWithIcon = (typeof DATA.projects[number]) & {
@@ -20,26 +27,41 @@ type ProjectWithIcon = (typeof DATA.projects[number]) & {
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const navigationItems = [
+    { id: "hero", label: "Home", icon: <Home className="h-4 w-4" /> },
+    { id: "about", label: "About", icon: <User className="h-4 w-4" /> },
+    { id: "work", label: "Experience", icon: <Briefcase className="h-4 w-4" /> },
+    { id: "skills", label: "Skills", icon: <Brain className="h-4 w-4" /> },
+    { id: "projects", label: "Projects", icon: <Layers className="h-4 w-4" /> },
+    { id: "contact", label: "Contact", icon: <Mail className="h-4 w-4" /> },
+  ];
+
+  // Get the first project for the featured section
+  const featuredProject = DATA.projects[0];
+
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <section id="hero">
-        <div className="mx-auto w-full max-w-4xl space-y-8">
-          <div className="gap-2 flex justify-between">
-            <div className="flex-col flex flex-1 space-y-1.5">
+    <main className="flex flex-col min-h-[100dvh] space-y-16 relative">
+      {/* Floating Navigation */}
+      <FloatingNav items={navigationItems} />
+      
+      <section id="hero" className="pt-8">
+        <div className="mx-auto w-full max-w-3xl space-y-8">
+          <div className="gap-6 flex flex-col md:flex-row md:justify-between md:items-center">
+            <div className="flex-col flex flex-1 space-y-3">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+                className="text-3xl font-bold tracking-tight sm:text-5xl/tight"
                 yOffset={8}
                 text="Hi, I'm Jatan Rathod 👋"
               />
               <BlurFadeText
-                className="max-w-[800px] md:text-xl"
+                className="max-w-[800px] text-muted-foreground md:text-xl"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-40 border">
+              <Avatar className="size-28 md:size-40 border">
                 <AvatarImage 
                   alt={DATA.name} 
                   src={DATA.avatarUrl} 
@@ -51,103 +73,145 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="about">
+      
+      <section id="about" className="w-full max-w-3xl mx-auto">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">About</h2>
+          <h2 className="text-2xl font-bold mb-4">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+          <Markdown className="prose max-w-full text-pretty font-sans text-muted-foreground dark:prose-invert">
             {DATA.summary}
           </Markdown>
         </BlurFade>
       </section>
-      <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
-          </BlurFade>
-          {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company}
-              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-            >
-              <ResumeCard
+      
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+      
+      <section id="work" className="w-full max-w-3xl mx-auto">
+        <div className="flex min-h-0 flex-col gap-y-6">
+          <SectionTitle 
+            title="Work Experience" 
+            badge="Experience"
+            subtitle="I've worked with various organizations to deliver impactful data solutions."
+            delay={BLUR_FADE_DELAY * 5}
+          />
+          
+          <div className="space-y-6">
+            {DATA.work.map((work, id) => (
+              <BlurFade
                 key={work.company}
-                logoUrl={work.logoUrl}
-                altText={work.company}
-                title={work.company}
-                subtitle={work.title}
-                href={work.href}
-                badges={work.badges}
-                period={`${work.start} - ${work.end ?? "Present"}`}
-                description={work.description}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section>
-      <section id="education">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Education</h2>
-          </BlurFade>
-          {DATA.education.map((education, id) => (
-            <BlurFade
-              key={education.school}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-            >
-              <ResumeCard
-                key={education.school}
-                href={education.href}
-                logoUrl={education.logoUrl}
-                altText={education.school}
-                title={education.school}
-                subtitle={education.degree}
-                period={`${education.start} - ${education.end}`}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section>
-      <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
-          </BlurFade>
-          <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
+                delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+              >
+                <ResumeCard
+                  key={work.company}
+                  logoUrl={work.logoUrl}
+                  altText={work.company}
+                  title={work.company}
+                  subtitle={work.title}
+                  href={work.href}
+                  badges={work.badges}
+                  period={`${work.start} - ${work.end ?? "Present"}`}
+                  description={work.description}
+                />
               </BlurFade>
             ))}
           </div>
         </div>
       </section>
       
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-10" />
-      
-      <section id="projects" className="mb-16">
-        <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-            <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Projects
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                My Projects
-              </h2>
-              <p className="mx-auto max-w-[800px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                I've developed and delivered impactful, enterprise-grade data and AI systems for diverse organizations, ranging from federal agencies to Fortune 500 companies. Here are some highlights from my portfolio:
-              </p>
-            </div>
+      <section id="education" className="w-full max-w-3xl mx-auto">
+        <div className="flex min-h-0 flex-col gap-y-6">
+          <SectionTitle 
+            title="Education" 
+            badge="Education"
+            delay={BLUR_FADE_DELAY * 7}
+            showBadge={false}
+          />
+          
+          <div className="space-y-4">
+            {DATA.education.map((education, id) => (
+              <BlurFade
+                key={education.school}
+                delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+              >
+                <ResumeCard
+                  key={education.school}
+                  href={education.href}
+                  logoUrl={education.logoUrl}
+                  altText={education.school}
+                  title={education.school}
+                  subtitle={education.degree}
+                  period={`${education.start} - ${education.end}`}
+                />
+              </BlurFade>
+            ))}
           </div>
-        </BlurFade>
-        <div className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] mx-auto px-4">
-            {DATA.projects.map((project, id) => (
+        </div>
+      </section>
+      
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+      
+      <section id="skills" className="w-full max-w-3xl mx-auto">
+        <div className="flex min-h-0 flex-col gap-y-6">
+          <SectionTitle 
+            title="Skills & Expertise" 
+            badge="Skills"
+            subtitle="My technical skills span across various domains of data engineering and AI."
+            delay={BLUR_FADE_DELAY * 9}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {DATA.skillCategories.map((category, id) => (
+              <SkillCategory
+                key={category.title}
+                title={category.title}
+                skills={category.skills as unknown as string[]}
+                icon={category.icon}
+                delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+      
+      <section id="projects" className="w-full mb-16">
+        <SectionHeader
+          title="Featured Projects"
+          subtitle="I've developed and delivered impactful, enterprise-grade data and AI systems for diverse organizations, ranging from federal agencies to Fortune 500 companies."
+          containerClassName="mb-12"
+        />
+        
+        <div className="w-full max-w-4xl mx-auto px-4 mb-12">
+          <FeaturedProject
+            title={featuredProject.title}
+            href={featuredProject.href || undefined}
+            description={featuredProject.description}
+            tags={featuredProject.technologies}
+            client={featuredProject.client}
+            clientLogo={(featuredProject as ProjectWithIcon).clientLogo}
+            clientLogos={(featuredProject as ProjectWithIcon).clientLogos}
+            clientIcon={(featuredProject as ProjectWithIcon).clientIcon}
+            delay={BLUR_FADE_DELAY * 11}
+          />
+        </div>
+        
+        <div className="w-full max-w-3xl mx-auto">
+          <SectionTitle 
+            title="More Projects" 
+            subtitle="Here are some other projects I've worked on."
+            delay={BLUR_FADE_DELAY * 12}
+            showBadge={false}
+          />
+        </div>
+        
+        <div className="w-full mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
+            {DATA.projects.slice(1).map((project, id) => (
               <BlurFade
                 key={project.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 13 + id * 0.05}
               >
                 <ProjectCard
                   href={project.href}
@@ -168,33 +232,36 @@ export default function Page() {
             ))}
           </div>
         </div>
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-10" />
       </section>
-      <section id="contact">
-        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Get in Touch
-              </h2>
-              <p className="mx-auto max-w-[800px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Just shoot me a dm{" "}
-                <Link
-                  href={DATA.contact.social.X.url}
-                  className="text-blue-500 hover:underline"
-                >
-                  with a direct question on twitter
-                </Link>{" "}
-                and I&apos;ll respond whenever I can. I will ignore all
-                soliciting.
-              </p>
-            </div>
-          </BlurFade>
-        </div>
+      
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+      
+      <section id="contact" className="w-full max-w-3xl mx-auto mb-16">
+        <SectionTitle 
+          title="Get in Touch" 
+          badge="Contact"
+          subtitle={`Want to chat? Just shoot me a dm with a direct question on twitter and I'll respond whenever I can. I will ignore all soliciting.`}
+          delay={BLUR_FADE_DELAY * 14}
+        />
+        
+        <BlurFade delay={BLUR_FADE_DELAY * 15} className="mt-6 flex justify-center">
+          <Link
+            href={DATA.contact.social.X.url}
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+          >
+            {DATA.contact.social.X.icon as unknown as ReactNode}
+            <span className="ml-2">Message on Twitter</span>
+          </Link>
+        </BlurFade>
       </section>
+      
+      <a 
+        href="#hero" 
+        className="fixed bottom-24 right-8 bg-background/80 border border-border/40 rounded-full p-2 shadow-lg backdrop-blur-md z-50 hover:bg-accent transition-colors"
+        aria-label="Back to top"
+      >
+        <ArrowUpCircle className="h-6 w-6" />
+      </a>
     </main>
   );
 }

@@ -1,5 +1,15 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { 
+  HomeIcon, 
+  NotebookIcon, 
+  Database, 
+  Code, 
+  Laptop, 
+  Brain, 
+  LineChart, 
+  Layers, 
+  Network
+} from "lucide-react";
 
 export const DATA = {
   name: "Jatan Rathod",
@@ -25,6 +35,63 @@ export const DATA = {
     "Data Visualization",
     "Machine Learning",
     "Large Language Models (LLMs)",
+  ],
+  skillCategories: [
+    {
+      title: "Data Engineering",
+      icon: <Database className="h-4 w-4" />,
+      skills: [
+        "Data Pipelines",
+        "ETL Processes",
+        "Data Integration",
+        "Data Warehousing",
+        "Data Modeling"
+      ]
+    },
+    {
+      title: "AI & Machine Learning",
+      icon: <Brain className="h-4 w-4" />,
+      skills: [
+        "Natural Language Processing (NLP)",
+        "Large Language Models (LLMs)",
+        "Retrieval-Augmented Generation (RAG)",
+        "Semantic Search",
+        "Machine Learning"
+      ]
+    },
+    {
+      title: "Programming",
+      icon: <Code className="h-4 w-4" />,
+      skills: [
+        "Python",
+        "SQL",
+        "JavaScript",
+        "TypeScript",
+        "React"
+      ]
+    },
+    {
+      title: "Architecture",
+      icon: <Layers className="h-4 w-4" />,
+      skills: [
+        "Microservices",
+        "Serverless",
+        "API Design",
+        "Cloud Infrastructure",
+        "Scalable Systems"
+      ]
+    },
+    {
+      title: "Analytics",
+      icon: <LineChart className="h-4 w-4" />,
+      skills: [
+        "Statistical Analysis",
+        "Economic Modeling",
+        "Data Visualization",
+        "Business Intelligence",
+        "Predictive Analytics"
+      ]
+    }
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
