@@ -82,7 +82,11 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: "home", label: "Home" },
-    { href: "/blog", icon: "notebook", label: "Blog" },
+    { href: "#about", icon: "user", label: "About" },
+    { href: "#work", icon: "briefcase", label: "Experience" },
+    { href: "#skills", icon: "brain", label: "Skills" },
+    { href: "#projects", icon: "layers", label: "Projects" },
+    { href: "#contact", icon: "mail", label: "Contact" },
   ],
   contact: {
     email: "contact@jatanrathod.com",

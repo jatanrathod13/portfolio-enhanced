@@ -14,7 +14,6 @@ import { FeaturedProject } from "@/components/featured-project";
 import { SectionTitle } from "@/components/section-title";
 import { SectionHeader } from "@/components/section-header";
 import { SkillCategory } from "@/components/skill-category";
-import { FloatingNav } from "@/components/floating-nav";
 import { IconWrapper } from "@/components/icon-wrapper";
 import { ArrowUpCircle } from "lucide-react";
 
@@ -42,9 +41,6 @@ export default function Page() {
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-16 relative">
-      {/* Floating Navigation */}
-      <FloatingNav items={navigationItems} />
-      
       <section id="hero" className="pt-8">
         <div className="mx-auto w-full max-w-3xl space-y-8">
           <div className="gap-6 flex flex-col md:flex-row md:justify-between md:items-center">
@@ -248,10 +244,10 @@ export default function Page() {
         <BlurFade delay={BLUR_FADE_DELAY * 15} className="mt-6 flex justify-center">
           <Link
             href={DATA.contact.social.X.url}
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-5 py-2"
           >
-            <IconWrapper icon="twitter" className="h-4 w-4" />
-            <span className="ml-2">Message on Twitter</span>
+            <IconWrapper icon="twitter" className="h-5 w-5 mr-2" />
+            Message on Twitter
           </Link>
         </BlurFade>
       </section>
