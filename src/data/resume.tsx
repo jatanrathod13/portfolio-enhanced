@@ -5,9 +5,9 @@ export const DATA = {
   location: "Houston, TX",
   locationLink: "https://www.google.com/maps/place/houston",
   description:
-    "Data Engineering & AI Expert crafting innovative solutions for federal agencies and Fortune 500 companies.",
+    "Delivering Intelligent, Scalable solutions for Federal agencies and Fortune 500 companies.",
   summary:
-    "As a versatile data engineering expert with deep specialization in artificial intelligence, I have a proven track record of architecting robust, scalable solutions that significantly enhance operational efficiency and decision-making capabilities. My diverse experience spans multiple industries, including procurement, healthcare, education, aviation, and manufacturing, where my contributions consistently generate substantial ROI and meaningful impact. I thrive on turning complex data challenges into clear, actionable insights and intelligent systems that empower organizations to perform at their highest potential.",
+    "As a seasoned Data Engineering professional specializing in Applied AI, I design and deliver robust, scalable solutions that drive operational excellence and informed decision-making. My work spans multiple industries—including federal procurement, healthcare, education, aviation, and manufacturing—where I’ve consistently enabled organizations to realize significant ROI and transformative impact. With a deep understanding of complex data ecosystems, I translate intricate challenges into intelligent, actionable systems. My approach blends engineering precision with AI-driven innovation, empowering enterprises to streamline operations, uncover insights, and achieve strategic goals at scale.",
   avatarUrl: "/profile.jpg",
   skills: [
     "Python",
