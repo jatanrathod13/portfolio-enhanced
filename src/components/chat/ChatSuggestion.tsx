@@ -1,3 +1,5 @@
+"use client";
+
 import type { Suggestion } from '@/types/chat';
 import { motion } from 'framer-motion';
 

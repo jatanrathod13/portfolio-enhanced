@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from 'framer-motion';
 import { useTheme } from '@/hooks/useTheme';
 import { Avatar } from '@/components/ui/avatar';
