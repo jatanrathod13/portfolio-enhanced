@@ -2,7 +2,7 @@ Always implement high quality production ready code that performs the requested 
 
 If you find yourself doing something very unusual or inconsistent with the existing codebase, patterns and practices then stop and explain the situation to the user and confirm the course of action before proceeding.
 
-The server is running on http://localhost:3001/ so dont run this again. 
+The server is running on http://localhost:3000/ so dont run this again. 
 
 The codebase is written in TypeScript and uses the Next.js framework.
 
