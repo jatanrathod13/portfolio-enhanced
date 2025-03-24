@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import React from "react";
+import { IconWrapper } from "./icon-wrapper";
 
 interface Props {
   title: string;
@@ -22,8 +23,9 @@ interface Props {
   image?: string;
   video?: string;
   links?: readonly {
-    icon: React.ReactNode;
-    type: string;
+    title?: string;
+    icon?: string | React.ReactNode;
+    type?: string;
     href: string;
   }[];
   className?: string;
@@ -165,10 +167,17 @@ export function ProjectCard({
         {links && links.length > 0 && (
           <div className="flex flex-row flex-wrap items-start gap-1 mt-3">
             {links?.map((link) => (
-              <Link href={link?.href} key={`${link.type}-${link.href}`} target="_blank">
+              <Link 
+                href={link?.href} 
+                key={`${link.title || link.type || ''}-${link.href}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <Badge className="flex gap-2 px-2 py-1 text-xs">
-                  {link.icon}
-                  {link.type}
+                  {link.icon && typeof link.icon === 'string' ? 
+                    <IconWrapper icon={link.icon} className="h-4 w-4" /> : 
+                    link.icon}
+                  {link.title || link.type}
                 </Badge>
               </Link>
             ))}

@@ -14,6 +14,7 @@ import { FeaturedProject } from "@/components/featured-project";
 import { SectionTitle } from "@/components/section-title";
 import { SectionHeader } from "@/components/section-header";
 import { SkillCategory } from "@/components/skill-category";
+import { EnhancedSkillCategory } from "@/components/enhanced-skill-category";
 import { IconWrapper } from "@/components/icon-wrapper";
 import { ArrowUpCircle } from "lucide-react";
 
@@ -31,8 +32,9 @@ export default function Page() {
     { id: "hero", label: "Home", icon: "home" },
     { id: "about", label: "About", icon: "user" },
     { id: "work", label: "Experience", icon: "briefcase" },
-    { id: "skills", label: "Skills", icon: "brain" },
+    { id: "education", label: "Education", icon: "notebook" },
     { id: "projects", label: "Projects", icon: "layers" },
+    { id: "skills", label: "Skills", icon: "brain" },
     { id: "contact", label: "Contact", icon: "mail" },
   ];
 
@@ -148,41 +150,16 @@ export default function Page() {
       
       <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
       
-      <section id="skills" className="w-full max-w-3xl mx-auto">
-        <div className="flex min-h-0 flex-col gap-y-6">
-          <SectionTitle 
-            title="Skills & Expertise" 
-            badge="Skills"
-            subtitle="My technical skills span across various domains of data engineering and AI."
-            delay={BLUR_FADE_DELAY * 9}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {DATA.skillCategories.map((category, id) => (
-              <SkillCategory
-                key={category.title}
-                title={category.title}
-                skills={category.skills as unknown as string[]}
-                icon={category.icon}
-                delay={BLUR_FADE_DELAY * 10 + id * 0.05}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
-      
       <section id="projects" className="w-full max-w-3xl mx-auto mb-16">
         <SectionTitle
           title="Featured Projects"
           badge="Projects"
           subtitle="I've developed and delivered impactful, enterprise-grade data and AI systems for diverse organizations, ranging from federal agencies to Fortune 500 companies."
-          delay={BLUR_FADE_DELAY * 11}
+          delay={BLUR_FADE_DELAY * 9}
         />
         
         <div className="w-full mt-6 mb-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 11.5}>
+          <BlurFade delay={BLUR_FADE_DELAY * 9.5}>
             <FeaturedProject
               title={featuredProject.title}
               href={featuredProject.href || undefined}
@@ -200,7 +177,7 @@ export default function Page() {
         <SectionTitle 
           title="More Projects" 
           subtitle="Here are some other projects I've worked on."
-          delay={BLUR_FADE_DELAY * 12}
+          delay={BLUR_FADE_DELAY * 10}
           showBadge={false}
         />
         
@@ -209,7 +186,7 @@ export default function Page() {
             {DATA.projects.slice(1).map((project, id) => (
               <BlurFade
                 key={project.title}
-                delay={BLUR_FADE_DELAY * 13 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 11 + id * 0.05}
               >
                 <ProjectCard
                   href={project.href}
@@ -227,6 +204,31 @@ export default function Page() {
                   clientIcon={(project as ProjectWithIcon).clientIcon}
                 />
               </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+      
+      <section id="skills" className="w-full max-w-3xl mx-auto">
+        <div className="flex min-h-0 flex-col gap-y-6">
+          <SectionTitle 
+            title="Skills & Expertise" 
+            badge="Skills"
+            subtitle="My technical skills span across various domains of data engineering and AI."
+            delay={BLUR_FADE_DELAY * 12}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {DATA.skillCategories.map((category, id) => (
+              <EnhancedSkillCategory
+                key={category.title}
+                title={category.title}
+                skills={category.skills as unknown as string[]}
+                icon={category.icon}
+                delay={BLUR_FADE_DELAY * 13 + id * 0.05}
+              />
             ))}
           </div>
         </div>

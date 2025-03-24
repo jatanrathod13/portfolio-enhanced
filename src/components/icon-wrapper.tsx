@@ -17,6 +17,7 @@ import {
   Laptop,
   Network,
   BookOpen,
+  FileText,
   LucideIcon
 } from 'lucide-react';
 
@@ -45,7 +46,8 @@ const iconMap: Record<string, LucideIcon> = {
   lineChart: LineChart,
   notebook: BookOpen,
   laptop: Laptop,
-  network: Network
+  network: Network,
+  fileText: FileText
 };
 
 export function IconWrapper({ icon, className }: IconWrapperProps) {

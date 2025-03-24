@@ -82,11 +82,6 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: "home", label: "Home" },
-    { href: "#about", icon: "user", label: "About" },
-    { href: "#work", icon: "briefcase", label: "Experience" },
-    { href: "#skills", icon: "brain", label: "Skills" },
-    { href: "#projects", icon: "layers", label: "Projects" },
-    { href: "#contact", icon: "mail", label: "Contact" },
   ],
   contact: {
     email: "contact@jatanrathod.com",
@@ -95,7 +90,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/jatanrathod",
+        url: "https://github.com/jatanrathod13",
         icon: "github",
         navbar: true,
       },
@@ -113,7 +108,7 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:jatan.h.rathod@gmail.com",
         icon: "mail",
         navbar: false,
       },
@@ -155,6 +150,14 @@ export const DATA = {
       start: "2019",
       end: "2021",
     },
+    {
+      school: "L.D College of Engineering",
+      href: "https://ldce.ac.in",
+      degree: "BE in Electronics and Communications Engineering",
+      logoUrl: "/logos/image.png",
+      start: "2012",
+      end: "2016",
+    },
   ],
   projects: [
     {
@@ -179,28 +182,6 @@ export const DATA = {
       video: "",
       client: "Department of Agriculture (USDA)",
       clientLogo: "/logos/usda-logo.png",
-    },
-    {
-      title: "iAccessible: Federal Website Accessibility Platform",
-      href: "",
-      dates: "",
-      active: true,
-      description:
-        "Engineered an enterprise-level platform that automates comprehensive accessibility testing and remediation for federal websites, ensuring full Section 508 compliance. Implemented sophisticated microservice architectures and ETL pipelines that collect, process, and analyze accessibility data across hundreds of domains. This solution enables agencies to efficiently identify, prioritize, and resolve digital accessibility issues, significantly boosting compliance and digital inclusion.",
-      technologies: [
-        "Python",
-        "Microservices",
-        "Prefect",
-        "Data Pipelines",
-        "ETL",
-        "Accessibility Testing",
-        "Automation",
-      ],
-      links: [],
-      image: "",
-      video: "",
-      client: "U.S. Department of Education & CMS",
-      clientLogos: ["/logos/doe-logo.png", "/logos/cms-logo.png"],
     },
     {
       title: "HUBZone Economic Impact Study",
@@ -240,11 +221,39 @@ export const DATA = {
         "Visualization",
         "Federal Procurement Analysis",
       ],
-      links: [],
+      links: [
+        {
+          title: "WOSB NAICS Analysis Report",
+          href: "https://www.sba.gov/sites/default/files/2022-03/WOSB%20NAICS%20Analysis%20-%20FINAL%20VERSION%20%283%29%20%281%29%20%281%29%20%283%29%28R%29%20%282%29.pdf",
+          icon: "fileText"
+        }
+      ],
       image: "",
       video: "",
       client: "Small Business Administration (SBA)",
       clientLogo: "/logos/sba-logo-high-quality.png",
+    },
+    {
+      title: "iAccessible: Federal Website Accessibility Platform",
+      href: "",
+      dates: "",
+      active: true,
+      description:
+        "Engineered an enterprise-level platform that automates comprehensive accessibility testing and remediation for federal websites, ensuring full Section 508 compliance. Implemented sophisticated microservice architectures and ETL pipelines that collect, process, and analyze accessibility data across hundreds of domains. This solution enables agencies to efficiently identify, prioritize, and resolve digital accessibility issues, significantly boosting compliance and digital inclusion.",
+      technologies: [
+        "Python",
+        "Microservices",
+        "Prefect",
+        "Data Pipelines",
+        "ETL",
+        "Accessibility Testing",
+        "Automation",
+      ],
+      links: [],
+      image: "",
+      video: "",
+      client: "U.S. Department of Education & CMS",
+      clientLogos: ["/logos/doe-logo.png", "/logos/cms-logo.png"],
     },
     {
       title: "FAA Comments Processing & Analysis Tool",
