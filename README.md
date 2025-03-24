@@ -1,7 +1,3 @@
-<div align="center">
-<img alt="Personal Website" src="https://github.com/jatanrathod13/portfolio-enhanced/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
-
 # Jatan Rathod's Personal Website
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.4-black?logo=next.js)](https://nextjs.org/)
