@@ -2,30 +2,41 @@
 <img alt="Personal Website" src="https://github.com/jatanrathod13/portfolio-enhanced/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
 </div>
 
-# Jatan Rathod's Personal Website [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjatanrathod13%2Fportfolio-enhanced)
+# Jatan Rathod's Personal Website
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.4-black?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com)
+[![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
 
-# Features
+A modern, responsive personal portfolio and blog built with Next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/).
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+## ✨ Features
 
-# Getting Started Locally
+- **Easy Configuration** - Setup takes minutes by editing the [single config file](./src/data/resume.tsx)
+- **Modern Stack** - Built with Next.js 14.2.4, React 18, TypeScript, Framer Motion for animations
+- **Beautiful UI** - Leverages shadcn/ui and Magic UI for a polished interface
+- **Blog Support** - Integrated blog functionality with Markdown support
+- **Fully Responsive** - Optimized for all device sizes
+- **Performance Optimized** - Fast load times and optimal Lighthouse scores
+- **Dark Mode** - Built-in light/dark theme support
+- **SEO Friendly** - Enhanced metadata for better search engine visibility
 
-1. Clone this repository to your local machine:
+## 🚀 Quick Start
+
+### Local Development
+
+1. Clone this repository:
 
    ```bash
-   git clone https://github.com/jatanrathod13/portfolio-enhanced
+   git clone https://github.com/jatanrathod13/portfolio-enhanced.git
    ```
 
-2. Move to the cloned directory
+2. Navigate to the project directory:
 
    ```bash
-   cd jatanrathod-personal-website-v1
+   cd portfolio-enhanced
    ```
 
 3. Install dependencies:
@@ -34,14 +45,50 @@ Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://
    pnpm install
    ```
 
-4. Start the local Server:
+4. Start the development server:
 
    ```bash
    pnpm dev
    ```
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-# License
+### Deployment
 
-Licensed under the [MIT license](https://github.com/jatanrathod13/portfolio-enhanced/blob/main/LICENSE.md).
+Deploy your own version of this portfolio with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjatanrathod13%2Fportfolio-enhanced)
+
+## 🔧 Customization
+
+1. Open the [resume.tsx](./src/data/resume.tsx) config file
+2. Update the personal information, experiences, skills, and other details
+3. Replace images in the `public` directory with your own
+4. Customize the blog content in the `content` directory
+
+## 📚 Project Structure
+
+```
+/
+├── content/         # Blog content files
+├── public/          # Static assets
+├── src/
+│   ├── app/         # Next.js app router pages
+│   ├── components/  # React components
+│   ├── data/        # Configuration and data files
+│   └── lib/         # Utility functions and libraries
+└── ...              # Configuration files
+```
+
+## 🛠️ Technologies Used
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **UI Components**: shadcn/ui, Magic UI
+- **Animations**: Framer Motion
+- **Content**: Markdown with MDX support
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
